@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple User Group Dresden</title>
+
+    {% load static %}
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"/>
+    <link rel="stylesheet" href="{% static "css/main.css" %}"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-push">
+                <h1>Apple User Group Dresden</h1>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <p class="hero-description">
+                    Wir sind eine unabhängige Community von Apple-Usern aller Altersschichten, die sich regelmäßig in
+                    Dresden trifft. Zu diesen Treffen bist auch Du herzlich eingeladen! Jeder kann bei uns mitmachen –
+                    dabei gibt es keine feste Mitgliedschaft oder Beitragszahlung. Bei uns zählt die Freude am
+                    Zusammentreffen und an sämtlichen Apfel-Produkten.
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 push-xs-12">
+                <div class="next-meeting">
+                    <h2>Nächstes Treffen</h2>
+                    <span class="next-meeting-pill">
+                        {{ upcoming_meeting.start | date:"d F" | default:"Unbekannt" }}
+                    </span>
+                    {% if upcoming_meeting %}
+                        <h2>
+                            ab {{ upcoming_meeting.start | date:"H" }} Uhr im {{ upcoming_meeting.location.name }}
+                        </h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
