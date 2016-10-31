@@ -1,6 +1,6 @@
 # Project settings
 *.sqlite3
-
+collected_static/
 
 ### OSX template
 .DS_Store
