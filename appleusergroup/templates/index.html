@@ -34,7 +34,7 @@
                 <div class="next-meeting">
                     <h2>Nächstes Treffen</h2>
                     <span class="next-meeting-pill">
-                        {{ upcoming_meeting.start | date:"d F" | default:"Unbekannt" }}
+                        {{ upcoming_meeting.start | date:"d. F" | default:"Unbekannt" }}
                     </span>
                     {% if upcoming_meeting %}
                         <h2>
