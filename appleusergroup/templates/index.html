@@ -31,17 +31,45 @@
                 </p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="next-meeting">
+                <section class="next-meeting">
                     <h2>Nächstes Treffen</h2>
-                    <span class="next-meeting-pill">
+                    <time class="next-meeting-pill">
                         {{ upcoming_meeting.start | date:"d. F Y" | default:"Unbekannt" }}
-                    </span>
+                    </time>
                     {% if upcoming_meeting %}
                         <h2>
                             ab {{ upcoming_meeting.start | date:"H" }} Uhr im {{ upcoming_meeting.location.name }}
                         </h2>
                     {% endif %}
-                </div>
+
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://www.schema.org",
+                            "@type": "SocialEvent",
+                            "name": "Apple User Group Treffen {{ upcoming_meeting.start | date:"F Y" }}",
+                            "url": "https://www.macuser-dresden.de",
+                            "description": "Das monatliche Treffen der Dresdener Apple User Group.",
+                            "startDate": "{{ upcoming_meeting.start | date:"c" }}",
+                            "endDate": "{{ upcoming_meeting.end | date:"c" }}",
+                            "isAccessibleForFree": "true",
+                            "inLanguage": "de",
+                            "typicalAgeRange": "18-",
+                            "location":
+                            {
+                                "@type": "Place",
+                                "name": "{{ upcoming_meeting.location.name }}",
+                                "address":
+                                {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "{{ upcoming_meeting.location.street }}",
+                                    "addressLocality": "{{ upcoming_meeting.location.city }}",
+                                    "postalCode": "{{ upcoming_meeting.location.postcode }}",
+                                    "addressCountry": "Deutschland"
+                                }
+                            }
+                        }
+                    </script>
+                </section>
             </div>
         </div>
 
