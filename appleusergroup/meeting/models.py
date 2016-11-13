@@ -28,6 +28,7 @@ class Meeting(models.Model):
     the basic information associated with a meeting.
     """
     start = models.DateTimeField()
+    end = models.DateTimeField()
     location = models.ForeignKey("Location", on_delete=models.PROTECT)
 
     objects = models.Manager()
