@@ -40,8 +40,8 @@
                         <h2>
                             ab {{ upcoming_meeting.start | date:"H" }} Uhr im {{ upcoming_meeting.location.name }}
                         </h2>
-                    {% endif %}
 
+                    {# Add structured event data to the page for search engines. #}
                     <script type="application/ld+json">
                         {
                             "@context": "http://www.schema.org",
@@ -69,6 +69,8 @@
                             }
                         }
                     </script>
+
+                    {% endif %}
                 </section>
             </div>
         </div>
