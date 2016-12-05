@@ -58,3 +58,10 @@ h2 {
     padding-top: 1px;
     white-space: nowrap;
 }
+
+.time-and-location {
+    font-size: 24px;
+    line-height: 1.33349;
+    font-weight: 300;
+    letter-spacing: 0em;
+}
