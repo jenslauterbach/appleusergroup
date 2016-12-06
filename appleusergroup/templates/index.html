@@ -35,11 +35,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <section class="next-meeting">
                     <h2>Nächstes Treffen</h2>
-                    <time class="next-meeting-pill">
+
+                    <div class="next-meeting-pill">
                         {{ upcoming_meeting.start | date:"d. F Y" | default:"Unbekannt" }}
-                    </time>
+                    </div>
 
                     {% if upcoming_meeting %}
+
                     <div class="time-and-location">
                         ab {{ upcoming_meeting.start | date:"H" }} Uhr im {{ upcoming_meeting.location.name }}
                     </div>
